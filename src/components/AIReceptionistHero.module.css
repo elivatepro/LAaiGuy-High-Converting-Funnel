@@ -1,0 +1,285 @@
+.section {
+    position: relative;
+    padding: 6rem 1.5rem;
+    background: transparent;
+    /* Allows global bg to show */
+    overflow: hidden;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 1.5rem;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.content {
+    z-index: 2;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    text-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
+}
+
+.titleItalic {
+    font-style: italic;
+    font-weight: 800;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background: var(--gradient-main);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    transition: var(--transition-normal);
+    box-shadow: 0 4px 15px var(--accent-glow);
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+/* Diagram Section */
+.diagramWrapper {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Clean radial glow behind diagram */
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+}
+
+@media (max-width: 768px) {
+    .diagramWrapper {
+        height: 350px;
+        margin-top: 2rem;
+    }
+
+    .atomContainer {
+        transform: scale(0.65);
+        /* Scale down the diagram itself */
+    }
+
+    /* Adjust labels specifically for mobile to bring them in */
+    .labelSR {
+        left: -5% !important;
+        text-align: right;
+    }
+
+    .labelNLP {
+        right: -5% !important;
+        text-align: left;
+    }
+
+    .nodeLabel {
+        font-size: 0.95rem;
+        /* readable size despite scale */
+        white-space: normal;
+        /* allow wrapping */
+        max-width: 140px;
+        /* constrain width */
+        line-height: 1.2;
+    }
+}
+
+.diagramLabel {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+}
+
+/* Atom Diagram */
+.atomContainer {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.core {
+    width: 90px;
+    height: 90px;
+    background: rgba(15, 15, 25, 0.8);
+    border: 1px solid rgba(168, 85, 247, 0.6);
+    box-shadow:
+        0 0 40px rgba(99, 102, 241, 0.3),
+        inset 0 0 20px rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    backdrop-filter: blur(12px);
+    position: relative;
+}
+
+.core::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    animation: pulseBorder 3s infinite;
+}
+
+@keyframes pulseBorder {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+.orbitPath {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 340px;
+    height: 120px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Faint clean lines */
+    border-radius: 50%;
+    transform-origin: center;
+}
+
+.orbit1 {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.orbit2 {
+    transform: translate(-50%, -50%) rotate(60deg);
+}
+
+.orbit3 {
+    transform: translate(-50%, -50%) rotate(120deg);
+}
+
+.node {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background: rgba(15, 15, 25, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a855f7;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.node:hover {
+    border-color: #a855f7;
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+    transform: scale(1.1);
+}
+
+.nodeWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 340px;
+    height: 120px;
+    transform-origin: center;
+    pointer-events: none;
+}
+
+/* Let the inner node handle pointer events */
+.nodeWrapper>* {
+    pointer-events: auto;
+}
+
+.nodeLabel {
+    position: absolute;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.labelSR {
+    top: 10%;
+    left: -20%;
+    text-align: right;
+}
+
+.labelNLP {
+    top: 10%;
+    right: -20%;
+    text-align: left;
+}
+
+.labelML {
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+}

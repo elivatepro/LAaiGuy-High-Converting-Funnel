@@ -1,0 +1,326 @@
+.section {
+    padding: 6rem 1.5rem;
+    background-color: transparent;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 1.5rem;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    text-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+.subtitle {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.1);
+    color: #a5b4fc;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    margin-bottom: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    background: rgba(20, 20, 30, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.cardContent {
+    margin-bottom: 2rem;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+.cardDescription {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Visualization Areas */
+.visualArea {
+    background: rgba(10, 10, 15, 0.5);
+    border-radius: 16px;
+    height: 200px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Visual 1: Chat Bubbles */
+.chatBubble {
+    background: rgba(30, 30, 45, 0.8);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    width: 100%;
+    max-width: 240px;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chatUser {
+    border-bottom-left-radius: 2px;
+}
+
+.chatAgent {
+    border-bottom-right-radius: 2px;
+    margin-left: auto;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+    border-color: rgba(99, 102, 241, 0.3);
+    color: white;
+}
+
+/* Visual 2: Notification Stack */
+.notificationStack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notificationCard {
+    background: rgba(30, 30, 45, 0.95);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    position: absolute;
+    transition: transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notifBack {
+    transform: scale(0.9) translateY(12px);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.notifFront {
+    z-index: 2;
+    border-left: 4px solid #a855f7;
+}
+
+.notifTitle {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.notifTime {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+/* Visual 3: Tech Headaches / Profile */
+.profileVisual {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* Removed padding to maximize width */
+}
+
+.callCard {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background: rgba(30, 30, 45, 0.6);
+    /* Slightly lighter for visibility */
+    padding: 0.875rem 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    transform: scale(0.98);
+    /* Slight scale down for depth */
+}
+
+.agentToast {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background: #ffffff;
+    /* Pure white */
+    padding: 0.875rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    /* Full width */
+    position: relative;
+    z-index: 10;
+    border: 1px solid white;
+    transform: translateY(-5px);
+    /* Slight overlap or separation tweak */
+}
+
+.iconCircle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #3b82f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.toastContent h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0;
+    color: #0f172a;
+}
+
+.toastContent p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.statusDot {
+    margin-left: auto;
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #475569;
+    flex-shrink: 0;
+}
+
+.messageContent h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.messageContent p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Bottom Grid for secondary features */
+.secondaryGrid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    .secondaryGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.secondaryCard {
+    background: rgba(20, 20, 30, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 3rem;
+}
+
+.secondaryTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}

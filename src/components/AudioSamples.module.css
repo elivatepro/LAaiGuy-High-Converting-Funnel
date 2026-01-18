@@ -1,0 +1,148 @@
+.section {
+    padding: 6rem 1.5rem;
+    background: transparent;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 1.5rem;
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.trackList {
+    background: rgba(20, 20, 30, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 0.5rem;
+}
+
+.track {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+    border-radius: 16px;
+    gap: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    margin-bottom: 0.5rem;
+}
+
+.track:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.track.active {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.buttonWrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.2s;
+}
+
+.active .buttonWrapper {
+    background: var(--gradient-main);
+    color: white;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+}
+
+.track:hover .buttonWrapper {
+    transform: scale(1.1);
+}
+
+.info {
+    flex: 1;
+}
+
+.trackTitle {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.active .trackTitle {
+    color: #a5b4fc;
+}
+
+.trackMeta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.waveform {
+    width: 100px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.bar {
+    width: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    animation: none;
+}
+
+.active .bar {
+    background: #a855f7;
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+    animation: equalize 1s infinite ease-in-out;
+}
+
+@keyframes equalize {
+    0% {
+        height: 10%;
+    }
+
+    50% {
+        height: 100%;
+    }
+
+    100% {
+        height: 10%;
+    }
+}

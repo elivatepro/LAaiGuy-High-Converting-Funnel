@@ -1,0 +1,201 @@
+.formContainer {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(20, 20, 30, 0.7);
+    /* Deep Tech Glass */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 600px) {
+    .formContainer {
+        padding: 1rem;
+        /* Tighter container padding */
+        border: none;
+        /* Optional: cleaner look if full width */
+        background: transparent;
+        /* Seamless blend if preferred, or keep as is. Let's keep background but tighter. */
+        box-shadow: none;
+        /* Reduce visual weight on mobile */
+        border-radius: 0;
+    }
+}
+
+.logoWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+    .logoWrapper {
+        margin-bottom: 1rem;
+    }
+
+    .form {
+        gap: 1rem;
+        /* Tighter field spacing */
+    }
+}
+
+.logo {
+    max-width: 220px;
+    height: auto;
+    /* Ensure logo is visible without altering its colors for now */
+    opacity: 1;
+    display: block;
+    /* Ensure it takes space */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #cbd5e1;
+    /* Light Slate */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #6366f1;
+    /* Indigo Accent */
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.input::placeholder {
+    color: #64748b;
+}
+
+.checkboxGroup {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox {
+    margin-top: 0.25rem;
+    width: 18px;
+    height: 18px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+    /* Custom checkbox style */
+    display: grid;
+    place-content: center;
+}
+
+.checkbox::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em white;
+    transform-origin: center;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.checkbox:checked {
+    background: #6366f1;
+    border-color: #6366f1;
+}
+
+.checkbox:checked::before {
+    transform: scale(1);
+}
+
+.checkboxLabel {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    /* Muted Slate */
+    line-height: 1.5;
+}
+
+.checkboxLabel strong {
+    color: #f1f5f9;
+    /* Near White */
+    font-weight: 600;
+}
+
+.submitButton {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    /* Primary Gradient */
+    color: white;
+    padding: 1rem;
+    border-radius: var(--radius-full);
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    /* Purple Glow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+    background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+}
+
+.privacy {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 1.5rem;
+}
+
+.privacy a {
+    color: #818cf8;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.privacy a:hover {
+    color: #a5b4fc;
+    text-decoration: underline;
+}
